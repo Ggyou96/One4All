@@ -1,0 +1,285 @@
+/*
+ * One4All Rofi Configuration
+ * Modern dark theme with glassmorphism design
+ */
+
+configuration {
+    modi: "drun,run,window,ssh,combi";
+    font: "JetBrainsMono Nerd Font 14";
+    show-icons: true;
+    icon-theme: "Papirus";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "  Apps";
+    display-run: "  Run";
+    display-window: "  Windows";
+    display-Network: "  Network";
+    sidebar-mode: true;
+    combi-modi: "window,drun,ssh";
+}
+
+@theme "~/.config/rofi/theme.rasi"
+
+* {
+    /* Nord Color Scheme */
+    nord0:     #2e3440;
+    nord1:     #3b4252;
+    nord2:     #434c5e;
+    nord3:     #4c566a;
+    nord4:     #d8dee9;
+    nord5:     #e5e9f0;
+    nord6:     #eceff4;
+    nord7:     #8fbcbb;
+    nord8:     #88c0d0;
+    nord9:     #81a1c1;
+    nord10:    #5e81ac;
+    nord11:    #bf616a;
+    nord12:    #d08770;
+    nord13:    #ebcb8b;
+    nord14:    #a3be8c;
+    nord15:    #b48ead;
+
+    /* Base colors */
+    background:     rgba(46, 52, 64, 0.9);
+    background-alt: rgba(59, 66, 82, 0.8);
+    foreground:     #d8dee9;
+    selected:       rgba(136, 192, 208, 0.8);
+    active:         rgba(163, 190, 140, 0.8);
+    urgent:         rgba(191, 97, 106, 0.8);
+    
+    /* Transparency and blur */
+    transparency: "real";
+}
+
+#window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 800px;
+    height: 600px;
+    x-offset: 0px;
+    y-offset: 0px;
+
+    /* Appearance */
+    background-color: @background;
+    border: 2px solid;
+    border-color: rgba(136, 192, 208, 0.4);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+#mainbox {
+    background-color: transparent;
+    children: [ inputbar, listview ];
+    spacing: 20px;
+    padding: 0px;
+}
+
+#inputbar {
+    background-color: @background-alt;
+    border-radius: 12px;
+    padding: 12px 16px;
+    spacing: 12px;
+    text-color: @foreground;
+    children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
+    border: 1px solid rgba(76, 86, 106, 0.4);
+}
+
+#prompt {
+    background-color: transparent;
+    text-color: @selected;
+    font: "JetBrainsMono Nerd Font Bold 16";
+}
+
+#textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @selected;
+    background-color: transparent;
+}
+
+#entry {
+    background-color: transparent;
+    text-color: @foreground;
+    placeholder-color: rgba(216, 222, 233, 0.5);
+    placeholder: "Search applications...";
+    blink: true;
+    cursor: text;
+}
+
+#case-indicator {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+#listview {
+    background-color: transparent;
+    columns: 2;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 8px;
+    padding: 0px;
+}
+
+#element {
+    background-color: @background-alt;
+    text-color: @foreground;
+    orientation: horizontal;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 2px;
+    border: 1px solid rgba(76, 86, 106, 0.3);
+    transition: all 0.3s ease;
+}
+
+#element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 24px;
+    margin: 0px 12px 0px 0px;
+}
+
+#element-text {
+    background-color: transparent;
+    text-color: inherit;
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0px 0px 0px 0px;
+}
+
+#element.normal.normal {
+    background-color: @background-alt;
+    text-color: @foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent;
+    text-color: @background;
+}
+
+#element.normal.active {
+    background-color: @active;
+    text-color: @background;
+}
+
+#element.selected.normal {
+    background-color: @selected;
+    text-color: @background;
+    border: 1px solid rgba(136, 192, 208, 0.6);
+    box-shadow: 0 4px 16px rgba(136, 192, 208, 0.3);
+}
+
+#element.selected.urgent {
+    background-color: @urgent;
+    text-color: @background;
+}
+
+#element.selected.active {
+    background-color: @active;
+    text-color: @background;
+}
+
+#element.alternate.normal {
+    background-color: @background-alt;
+    text-color: @foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @urgent;
+    text-color: @background;
+}
+
+#element.alternate.active {
+    background-color: @active;
+    text-color: @background;
+}
+
+#scrollbar {
+    width: 4px;
+    border: 0px;
+    handle-color: @selected;
+    handle-width: 8px;
+    padding: 0px;
+}
+
+#sidebar {
+    border: 2px dash 0px 0px;
+    border-color: @selected;
+    background-color: @background-alt;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0px 0px 0px;
+}
+
+#button {
+    background-color: @background-alt;
+    text-color: @foreground;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 2px;
+    border: 1px solid rgba(76, 86, 106, 0.3);
+    horizontal-align: 0.5;
+}
+
+#button.selected {
+    background-color: @selected;
+    text-color: @background;
+    border: 1px solid rgba(136, 192, 208, 0.6);
+}
+
+#mode-switcher {
+    background-color: transparent;
+    spacing: 0px;
+}
+
+#inputbar {
+    children: [prompt, textbox-prompt-colon, entry];
+}
+
+/* Hover effects */
+#element:hover {
+    background-color: rgba(136, 192, 208, 0.6);
+    text-color: @background;
+    border: 1px solid rgba(136, 192, 208, 0.8);
+}
+
+#button:hover {
+    background-color: rgba(136, 192, 208, 0.6);
+    text-color: @background;
+}
+
+/* Custom power menu styling */
+#window.powermenu {
+    width: 400px;
+    height: 300px;
+}
+
+#listview.powermenu {
+    columns: 1;
+    lines: 5;
+    fixed-height: false;
+    fixed-columns: false;
+}
+
+#element.powermenu {
+    padding: 16px;
+    font: "JetBrainsMono Nerd Font Bold 16";
+    text-align: center;
+}
+
+#element-text.powermenu {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
