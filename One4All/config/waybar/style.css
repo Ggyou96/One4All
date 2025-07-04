@@ -1,0 +1,308 @@
+/* One4All Waybar Glassmorphism Theme */
+/* Modern dark theme with transparency and blur effects */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Fira Code", monospace;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(46, 52, 64, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(136, 192, 208, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 0;
+}
+
+/* Workspaces */
+#workspaces {
+    background: transparent;
+    padding: 0 8px;
+}
+
+#workspaces button {
+    background: rgba(76, 86, 106, 0.4);
+    color: #d8dee9;
+    border-radius: 12px;
+    margin: 4px 2px;
+    padding: 6px 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(136, 192, 208, 0.2);
+}
+
+#workspaces button:hover {
+    background: rgba(94, 129, 172, 0.6);
+    color: #eceff4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(94, 129, 172, 0.3);
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, rgba(136, 192, 208, 0.8), rgba(94, 129, 172, 0.8));
+    color: #2e3440;
+    box-shadow: 0 4px 16px rgba(136, 192, 208, 0.4);
+    border: 1px solid rgba(136, 192, 208, 0.6);
+}
+
+#workspaces button.urgent {
+    background: rgba(191, 97, 106, 0.8);
+    color: #eceff4;
+    animation: blink 1s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background: rgba(191, 97, 106, 1);
+        box-shadow: 0 4px 16px rgba(191, 97, 106, 0.6);
+    }
+}
+
+/* Window title */
+#window {
+    background: rgba(59, 66, 82, 0.6);
+    color: #d8dee9;
+    border-radius: 12px;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    border: 1px solid rgba(76, 86, 106, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#window:hover {
+    background: rgba(59, 66, 82, 0.8);
+    color: #eceff4;
+}
+
+/* Clock */
+#clock {
+    background: linear-gradient(135deg, rgba(163, 190, 140, 0.8), rgba(143, 188, 187, 0.8));
+    color: #2e3440;
+    border-radius: 12px;
+    padding: 8px 20px;
+    margin: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid rgba(163, 190, 140, 0.6);
+    box-shadow: 0 4px 16px rgba(163, 190, 140, 0.3);
+    transition: all 0.3s ease;
+}
+
+#clock:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(163, 190, 140, 0.4);
+}
+
+/* Right modules container */
+#tray,
+#cpu,
+#memory,
+#network,
+#battery,
+#pulseaudio,
+#custom-power {
+    background: rgba(59, 66, 82, 0.6);
+    color: #d8dee9;
+    border-radius: 12px;
+    padding: 8px 12px;
+    margin: 4px 2px;
+    border: 1px solid rgba(76, 86, 106, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+/* CPU Module */
+#cpu {
+    background: rgba(208, 135, 112, 0.6);
+    color: #eceff4;
+    border: 1px solid rgba(208, 135, 112, 0.4);
+}
+
+#cpu:hover {
+    background: rgba(208, 135, 112, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(208, 135, 112, 0.3);
+}
+
+/* Memory Module */
+#memory {
+    background: rgba(180, 142, 173, 0.6);
+    color: #eceff4;
+    border: 1px solid rgba(180, 142, 173, 0.4);
+}
+
+#memory:hover {
+    background: rgba(180, 142, 173, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(180, 142, 173, 0.3);
+}
+
+/* Network Module */
+#network {
+    background: rgba(136, 192, 208, 0.6);
+    color: #2e3440;
+    border: 1px solid rgba(136, 192, 208, 0.4);
+}
+
+#network:hover {
+    background: rgba(136, 192, 208, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(136, 192, 208, 0.3);
+}
+
+#network.disconnected {
+    background: rgba(191, 97, 106, 0.6);
+    color: #eceff4;
+}
+
+/* Battery Module */
+#battery {
+    background: rgba(163, 190, 140, 0.6);
+    color: #2e3440;
+    border: 1px solid rgba(163, 190, 140, 0.4);
+}
+
+#battery:hover {
+    background: rgba(163, 190, 140, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(163, 190, 140, 0.3);
+}
+
+#battery.charging {
+    background: rgba(235, 203, 139, 0.6);
+    color: #2e3440;
+    animation: charging 2s linear infinite;
+}
+
+#battery.warning:not(.charging) {
+    background: rgba(235, 203, 139, 0.8);
+    color: #2e3440;
+    animation: warning 1s ease-in-out infinite alternate;
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(191, 97, 106, 0.8);
+    color: #eceff4;
+    animation: critical 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes charging {
+    0% { background: rgba(163, 190, 140, 0.6); }
+    50% { background: rgba(235, 203, 139, 0.8); }
+    100% { background: rgba(163, 190, 140, 0.6); }
+}
+
+@keyframes warning {
+    from { background: rgba(235, 203, 139, 0.6); }
+    to { background: rgba(235, 203, 139, 1); }
+}
+
+@keyframes critical {
+    from { background: rgba(191, 97, 106, 0.8); }
+    to { background: rgba(191, 97, 106, 1); }
+}
+
+/* Audio Module */
+#pulseaudio {
+    background: rgba(129, 161, 193, 0.6);
+    color: #2e3440;
+    border: 1px solid rgba(129, 161, 193, 0.4);
+}
+
+#pulseaudio:hover {
+    background: rgba(129, 161, 193, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(129, 161, 193, 0.3);
+}
+
+#pulseaudio.muted {
+    background: rgba(76, 86, 106, 0.6);
+    color: #d8dee9;
+}
+
+/* Tray */
+#tray {
+    background: rgba(59, 66, 82, 0.6);
+    padding: 8px 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgba(191, 97, 106, 0.6);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+/* Power button */
+#custom-power {
+    background: rgba(191, 97, 106, 0.6);
+    color: #eceff4;
+    border: 1px solid rgba(191, 97, 106, 0.4);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+    background: rgba(191, 97, 106, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(191, 97, 106, 0.4);
+}
+
+/* Submap */
+#submap {
+    background: rgba(235, 203, 139, 0.8);
+    color: #2e3440;
+    border-radius: 12px;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    border: 1px solid rgba(235, 203, 139, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Tooltip styling */
+tooltip {
+    background: rgba(46, 52, 64, 0.95);
+    color: #d8dee9;
+    border-radius: 12px;
+    border: 1px solid rgba(136, 192, 208, 0.3);
+    padding: 8px 12px;
+    font-size: 13px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1366px) {
+    * {
+        font-size: 13px;
+    }
+    
+    #workspaces button {
+        padding: 4px 8px;
+    }
+    
+    #clock {
+        font-size: 14px;
+        padding: 6px 16px;
+    }
+}
